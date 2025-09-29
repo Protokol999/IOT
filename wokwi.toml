@@ -1,4 +1,17 @@
 [wokwi]
 version = 1
+description = "Проект для симуляции работы с LCD, клавиатурой и светодиодами"
 firmware = '.pio/build/megaatmega2560/firmware.hex'
 elf = '.pio/build/megaatmega2560/firmware.elf'
+board = "mega2560"
+
+# Подключение периферийных устройств
+peripherals = [
+    { type = "lcd", model = "1602", address = "0x27" }, # LCD 16x2 с адресом I2C 0x27
+    { type = "keypad", rows = 4, cols = 4 },           # Клавиатура 4x4
+    { type = "led", pin = 12, color = "green" },       # Зеленый светодиод на пине 12
+    { type = "led", pin = 11, color = "red" }          # Красный светодиод на пине 11
+]
+
+# Включение отладки
+debug = true
